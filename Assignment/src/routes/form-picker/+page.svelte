@@ -62,7 +62,7 @@
         {"Hondenhuurservice".toUpperCase()}
       </Typography>
     </legend>
-
+    <Spacer />
     <div id="dog-picture">
       <Image
         src={formData.dog != ""
@@ -71,7 +71,7 @@
         alt="Dog"
       />
     </div>
-
+    <Spacer multiplier={0.5} />
     <div id="inputfields">
       <DateField
         label="Start Datum"
@@ -92,14 +92,16 @@
         onChange={handleInputChange}
       />
     </div>
-    <Spacer multiplier={0.5} />
+    <Spacer />
     <Button onClick={onSubmit} rounded={false}>Verzenden</Button>
+    <Spacer />
   </fieldset>
 </section>
 
 <style lang="scss">
   #form-picker {
     display: flex;
+    align-items: center;
     width: fit-content;
     flex-direction: column;
     margin: 20px;
@@ -108,12 +110,18 @@
   #form-fieldset {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 5px;
     border: 1px solid white;
   }
 
   #form-legend {
+    display: flex;
     color: var(--color-darkest-lilac);
+    left: 0;
+    right: 0;
+    margin: auto;
+    position: relative;
   }
 
   #inputfields {
