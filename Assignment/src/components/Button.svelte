@@ -1,6 +1,10 @@
 <script lang="ts">
+  import Typography from "./Typography.svelte";
+
   export let width: number | null = null;
+  export let height: number | null = null;
   export let onClick: Function;
+  export let rounded: boolean = true;
 
   function handleClick() {
     onClick();
@@ -9,28 +13,32 @@
 
 <button
   class="button"
-  style="width: {width == null ? 'fit-content' : width + 'px'};"
+  style="
+    width: {width == null ? 'fit-content' : width + 'px'};
+    height: {height == null ? 'fit-content' : height + 'px'};
+    border-radius: {rounded ? 14 : 0}px;
+  "
   on:click={handleClick}
 >
-  <slot />
+  <Typography variant="h2" type="body" color="var(--color-darkest-lilac)">
+    <slot />
+  </Typography>
 </button>
 
 <style lang="scss">
   .button {
     display: inline-block;
-    height: fit-content;
     padding: 10px;
     cursor: pointer;
     border: none;
-    border-radius: 14px;
     background-color: white;
 
     transition:
-      background-color 0.2s,
-      color 0.2s;
+      background-color 0.2s ease,
+      color 0.2s ease;
 
     &:hover {
-      background-color: var(--color-button-bg);
+      background-color: var(--color-dark-lilac);
       color: white;
     }
   }
