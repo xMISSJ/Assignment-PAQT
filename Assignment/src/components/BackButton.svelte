@@ -3,7 +3,7 @@
   import { page } from "$app/stores";
   import Typography from "./Typography.svelte";
 
-  let backText: string = "Terug naar home";
+  let backText: string = "< Terug naar home";
 </script>
 
 <div class="back-button">
