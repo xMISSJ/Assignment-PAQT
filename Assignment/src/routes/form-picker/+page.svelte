@@ -63,6 +63,15 @@
       </Typography>
     </legend>
 
+    <div id="dog-picture">
+      <Image
+        src={formData.dog != ""
+          ? getPhotoUrlByName(formData.dog)
+          : imagePath + "placeholder.jpg"}
+        alt="Dog"
+      />
+    </div>
+
     <div id="inputfields">
       <DateField
         label="Start Datum"
@@ -83,9 +92,6 @@
         onChange={handleInputChange}
       />
     </div>
-    <div id="dog-picture">
-      <Image src={getPhotoUrlByName(formData.dog)} alt="Dog" />
-    </div>
     <Spacer multiplier={0.5} />
     <Button onClick={onSubmit} rounded={false}>Verzenden</Button>
   </fieldset>
@@ -94,6 +100,7 @@
 <style lang="scss">
   #form-picker {
     display: flex;
+    width: fit-content;
     flex-direction: column;
     margin: 20px;
   }
