@@ -1,8 +1,8 @@
-<script>
+<script lang="ts">
 </script>
 
 <svelte:head>
-  <title>Home</title>
+  <title>PAQT Assignment</title>
   <meta name="description" content="Home screen with selectable assignments." />
 </svelte:head>
 
