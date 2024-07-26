@@ -1,9 +1,10 @@
 <script lang="ts">
-  import Typography from "./Typography.svelte";
+  import Typography from "../Typography.svelte";
 
   export let label: string = "Label";
+  export let fieldName: string = "Name";
   export let type: string = "date";
-  export let value: string;
+  export let fieldValue: string;
   export let onChange: (event: Event) => void;
 </script>
 
@@ -11,7 +12,7 @@
   <Typography variant="h2" type="body" color="var(--color-darkest-lilac)">
     {label}
   </Typography>
-  <input {type} {value} on:change={onChange} />
+  <input {type} name={fieldName} value={fieldValue} on:change={onChange} />
 </div>
 
 <style lang="scss">

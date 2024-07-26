@@ -3,9 +3,11 @@
   import Typography from "../../components/Typography.svelte";
   import { formatDate } from "../../lib/dateUtils.js";
   import Spacer from "../../components/Spacer.svelte";
-  import DateField from "../../components/DateField.svelte";
-  import DropDown from "../../components/DropDown.svelte";
+  import DateField from "../../components/FormPicker/DateField.svelte";
+  import DropDown from "../../components/FormPicker/DropDown.svelte";
   import Image from "../../components/Image.svelte";
+  import { fakeRequest } from "$lib/fakeApi";
+  import ErrorField from "../../components/FormPicker/ErrorField.svelte";
 
   type FormData = {
     startDate: string;
@@ -18,13 +20,13 @@
     name: string;
   };
 
-  let imagePath = "/images/dogs/";
-
   let formData: FormData = {
     startDate: "",
     endDate: "",
     dog: "",
   };
+
+  let imagePath = "/images/dogs/";
 
   let dogs: Dog[] = [
     { photoUrl: imagePath + "border-collie.jpg", name: "Daisy" },
@@ -34,20 +36,81 @@
     { photoUrl: imagePath + "golden-retriever.jpg", name: "Nala" },
   ];
 
+  let showErrorText: boolean = false;
   let dogNames: string[] = dogs.map((dog) => dog.name);
+  let errorText: string = "";
 
-  function handleInputChange(event: Event) {
-    const input = event.target as HTMLInputElement;
-
-    let name = input.name;
-    let value = input.value;
-
-    formData[name as keyof FormData] = value;
-
-    console.log(value);
+  $: {
+    showErrorText = errorText == "" ? false : true;
   }
 
-  function onSubmit() {}
+  function handleInputChange(event: Event) {
+    errorText = "";
+    const input = event.target as HTMLInputElement;
+
+    let fieldName = input.name;
+    let fieldValue = input.value;
+
+    // Assign value to formData object with assigned fieldName.
+    // fieldName in formData should be the same string value as the ones assigned to the formFields (=DateField and DropDown).
+    formData[fieldName as keyof FormData] = fieldValue;
+  }
+
+  function validateForm(): boolean {
+    if (!formData.startDate || !formData.endDate || !formData.dog) {
+      errorText = "Alle velden moeten ingevuld zijn.";
+      return false;
+    }
+
+    console.log(
+      "formData.startDate",
+      formData.startDate,
+      "formData.endDate",
+      formData.endDate
+    );
+
+    if (formData.startDate == formData.endDate) {
+      errorText = "De start- en einddatum mogen niet gelijk zijn.";
+      return false;
+    }
+
+    if (new Date(formData.startDate) > new Date(formData.endDate)) {
+      errorText = "Voer een startdatum in die vóór de einddatum begint.";
+      return false;
+    }
+    return true;
+  }
+
+  async function onSubmit() {
+    if (!validateForm()) {
+      return;
+    }
+
+    // Do fake request and use fake response.
+    const response = await fakeRequest(formData);
+    handleServerResponse(response);
+  }
+
+  function handleServerResponse(response: {
+    firstAvailableDate: string | null;
+  }) {
+    if (response.firstAvailableDate) {
+      const formattedStartDate: string = formatDate(formData.startDate);
+      const formattedAvailableDate: string = formatDate(
+        response.firstAvailableDate
+      );
+
+      // Check whether the start date is the same or later than the first available date.
+      if (new Date(formattedStartDate) >= new Date(formattedAvailableDate)) {
+        errorText = "De hond is beschikbaar in de gekozen periode.";
+        return;
+      }
+      errorText = `De gekozen hond is niet beschikbaar. Beschikbaar vanaf: ${formattedAvailableDate}`;
+    } else {
+      // If there is no first available date for the dog, it's by default available.
+      errorText = "De hond is beschikbaar in de gekozen periode.";
+    }
+  }
 
   function getPhotoUrlByName(name: string): string | undefined {
     const dog = dogs.find((dog) => dog.name === name);
@@ -75,25 +138,32 @@
     <div id="inputfields">
       <DateField
         label="Start Datum"
-        value={formData.startDate}
+        fieldName="startDate"
+        fieldValue={formData.startDate}
         onChange={handleInputChange}
       />
 
       <DateField
         label="Eind Datum"
-        value={formData.endDate}
+        fieldName="endDate"
+        fieldValue={formData.endDate}
         onChange={handleInputChange}
       />
 
       <DropDown
         label="Hond"
+        fieldName="dog"
         placeholder="Kies een hond"
         items={dogNames}
         onChange={handleInputChange}
       />
     </div>
-    <Spacer />
-    <Button onClick={onSubmit} rounded={false}>Verzenden</Button>
+    <Spacer multiplier={0.5} />
+    <ErrorField show={showErrorText}>{errorText}</ErrorField>
+    <Spacer multiplier={0.5} />
+    <Button onClick={onSubmit} rounded={false}>
+      Beschikbaarheid Controleren
+    </Button>
     <Spacer />
   </fieldset>
 </section>

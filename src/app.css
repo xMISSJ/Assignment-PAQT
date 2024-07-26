@@ -1,6 +1,7 @@
 :root {
 	--color-bg: rgb(225, 222, 243);
 	--color-text: #00000;
+	--color-error: rgb(218, 52, 52);
 	--color-dark-lilac: rgb(179, 176, 202);
 	--color-darker-lilac: rgb(101, 98, 124);
 	--color-darkest-lilac:rgb(70, 68, 88);
