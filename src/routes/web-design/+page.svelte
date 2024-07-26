@@ -1,3 +1,7 @@
-<script lang="ts"></script>
+<script lang="ts">
+  import Header from "../../components/WebDesign/Header.svelte";
+</script>
 
-<section><h1>Web design here.</h1></section>
+<section id="web-design">
+  <Header />
+</section>

@@ -16,7 +16,7 @@
   style="
     width: {width == null ? 'fit-content' : width + 'px'};
     height: {height == null ? 'fit-content' : height + 'px'};
-    border-radius: {rounded ? 14 : 0}px;
+    border-radius: {rounded ? 8 : 0}px;
   "
   on:click={handleClick}
 >

@@ -24,10 +24,12 @@
   .dropdown {
     display: flex;
     flex-direction: column;
+    align-items: center;
   }
 
   select {
     box-sizing: border-box;
+    text-align: center;
     width: 150px;
     height: 20px;
     color: var(--color-darker-lilac);

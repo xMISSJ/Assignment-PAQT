@@ -19,9 +19,12 @@
   .datefield {
     display: flex;
     flex-direction: column;
+    align-items: center;
   }
 
   input {
+    display: flex;
+    justify-content: center;
     box-sizing: border-box;
     width: 150px;
     height: 20px;

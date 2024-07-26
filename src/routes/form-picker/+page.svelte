@@ -62,13 +62,6 @@
       return false;
     }
 
-    console.log(
-      "formData.startDate",
-      formData.startDate,
-      "formData.endDate",
-      formData.endDate
-    );
-
     if (formData.startDate == formData.endDate) {
       errorText = "De start- en einddatum mogen niet gelijk zijn.";
       return false;
@@ -125,7 +118,7 @@
         {"Hondenhuurservice".toUpperCase()}
       </Typography>
     </legend>
-    <Spacer />
+    <Spacer multiplier={10} />
     <div id="dog-picture">
       <Image
         src={formData.dog != ""
@@ -134,7 +127,7 @@
         alt="Dog"
       />
     </div>
-    <Spacer multiplier={0.5} />
+    <Spacer />
     <div id="inputfields">
       <DateField
         label="Start Datum"
@@ -161,9 +154,7 @@
     <Spacer multiplier={0.5} />
     <ErrorField show={showErrorText}>{errorText}</ErrorField>
     <Spacer multiplier={0.5} />
-    <Button onClick={onSubmit} rounded={false}>
-      Beschikbaarheid Controleren
-    </Button>
+    <Button onClick={onSubmit}>Beschikbaarheid Controleren</Button>
     <Spacer />
   </fieldset>
 </section>
@@ -182,7 +173,8 @@
     flex-direction: column;
     align-items: center;
     gap: 5px;
-    border: 1px solid white;
+    border: 1px solid var(--color-dark-lilac);
+    border-radius: 12px;
   }
 
   #form-legend {
@@ -202,5 +194,7 @@
   #dog-picture {
     width: 300px;
     height: 300px;
+    border-radius: 8px;
+    overflow: hidden;
   }
 </style>
