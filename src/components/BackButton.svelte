@@ -16,8 +16,6 @@
 
 <style lang="scss">
   .back-button {
-    margin-top: 20px;
-    margin-left: 20px;
     text-underline-offset: 3px;
     text-decoration-thickness: 1px;
     text-decoration: underline;
