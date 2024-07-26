@@ -11,10 +11,12 @@
     {
       fontSize: string;
       letterSpacing?: string;
+      fontWeight?: string;
     }
   > = {
     title: {
       fontSize: "30px",
+      letterSpacing: "2px",
     },
     subtitle: {
       fontSize: "22px",
@@ -22,6 +24,10 @@
     },
     body: {
       fontSize: "12px",
+    },
+    body2: {
+      fontSize: "10px",
+      fontWeight: "900",
     },
   };
 
@@ -37,6 +43,7 @@
     white-space: ${whiteSpace};
     font-size: ${textStyle.fontSize};
     letter-spacing: ${textStyle.letterSpacing};
+    font-weight: ${textStyle.fontWeight};
   `}
 >
   <slot />

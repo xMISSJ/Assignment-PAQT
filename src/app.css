@@ -5,6 +5,7 @@
 	--color-dark-lilac: rgb(179, 176, 202);
 	--color-darker-lilac: rgb(101, 98, 124);
 	--color-darkest-lilac:rgb(70, 68, 88);
+
 	color: var(--color-text);
 	background-color: var(--color-bg);
 	font-family: 'Helvetica', sans-serif;

@@ -1,5 +1,5 @@
 <script lang="ts">
-  export let multiplier: number = 4;
+  export let multiplier: number = 1;
 </script>
 
 <div id="spacer" style="height: {multiplier * 4}px;" />

@@ -5,29 +5,34 @@
 </script>
 
 <div class="app">
+  {#if $page.url.pathname != "/"}
+    <div class="back-button">
+      <BackButton />
+    </div>
+  {/if}
   <main>
-    {#if $page.url.pathname != "/"}
-      <div class="back-button">
-        <BackButton />
-      </div>
-    {/if}
     <slot />
   </main>
 </div>
 
 <style>
+  .app {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+  }
+
   main {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    flex: 1;
   }
 
   .back-button {
-    top: 20px;
-    left: 20px;
-    position: absolute;
+    margin: 20px;
   }
 </style>

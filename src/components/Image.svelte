@@ -5,11 +5,12 @@
   export let alt: string = "";
   export let objectFit: string = "cover";
   export let style: string = "";
+  export let useBase: boolean = true;
 </script>
 
 <img
   class="image-component"
-  src={base + src}
+  src={useBase ? base + src : src}
   {alt}
   style="object-fit: {objectFit}; {style};"
   loading="lazy"
