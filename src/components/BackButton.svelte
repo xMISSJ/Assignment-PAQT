@@ -1,6 +1,5 @@
 <script lang="ts">
   import { base } from "$app/paths";
-  import { page } from "$app/stores";
   import Typography from "./Typography.svelte";
 
   let backText: string = "< Terug naar home";

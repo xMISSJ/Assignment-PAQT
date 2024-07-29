@@ -20,7 +20,7 @@
   "
   on:click={handleClick}
 >
-  <Typography variant="h2" type="body" color="var(--color-darkest-lilac)">
+  <Typography variant="h2" type="body2" color="var(--color-darkest-lilac)">
     <slot />
   </Typography>
 </button>

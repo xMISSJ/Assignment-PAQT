@@ -1,14 +1,15 @@
 :root {
-	--color-bg: rgb(225, 222, 243);
+	--color-bg: #e1def3;
 	--color-text: #00000;
-	--color-error: rgb(218, 52, 52);
-	--color-dark-lilac: rgb(179, 176, 202);
-	--color-darker-lilac: rgb(101, 98, 124);
-	--color-darkest-lilac:rgb(70, 68, 88);
+	--color-error: #da3434;
+	--color-dark-lilac: #b3b0ca;
+	--color-dark-lilac-2: #cfcce6;
+	--color-darker-lilac: #65627c;
+	--color-darkest-lilac:#464458;
 
 	color: var(--color-text);
 	background-color: var(--color-bg);
-	font-family: 'Helvetica', sans-serif;
+	font-family: "Inter Light", sans-serif;
 }
 
 html,
@@ -27,6 +28,9 @@ h4,
 h5,
 h6,
 p {
+	font-size: inherit;
+	font-family: inherit;
+	font-weight: inherit;
 	margin: 0;
 	padding: 0;
 }

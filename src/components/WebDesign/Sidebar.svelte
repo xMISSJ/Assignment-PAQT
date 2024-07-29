@@ -1,24 +1,35 @@
-<script>
-  import Image from "../Image.svelte";
+<script lang="ts">
+  import CheckBox from "./CheckBox.svelte";
+  import Spacer from "../Spacer.svelte";
   import Typography from "../Typography.svelte";
-  export let imagePath = "";
-  export let imageAlt = "";
-  export let imageUseBase = false;
+
+  export let title: string = "Title 1";
+  export let ingredients: string[];
+  export let sideNote: string = "";
 </script>
 
 <div class="side-bar">
-  <div class="image-container">
-    <Image src={imagePath} alt={imageAlt} useBase={imageUseBase} />
-  </div>
   <div class="content">
-    <Typography variant="p" type="subtitle">{"Jenny Sun"}</Typography>
-    <Typography variant="p" type="body2"
-      >{"Digital Artist".toUpperCase()}</Typography
-    >
+    <Typography variant="p" type="subtitle2">{title}</Typography>
+    <Spacer multiplier={2} />
+    {#each ingredients as ingredient, index}
+      <div class="checkbox-item">
+        <CheckBox id="option-{index}" />
+        <label for="option-{index}">
+          <Typography variant="p" type="body">{@html ingredient}</Typography>
+        </label>
+      </div>
+    {/each}
+    <Spacer multiplier={4} />
+    {#if sideNote != ""}
+      <Typography variant="p" type="body">{sideNote}</Typography>
+    {/if}
   </div>
 </div>
 
 <style lang="scss">
+  @import "../../styles/variables";
+
   .side-bar,
   .content {
     display: flex;
@@ -26,21 +37,23 @@
   }
 
   .side-bar {
-    width: 300px;
-    height: 400px;
+    width: 100%;
+    height: fit-content;
     background-color: white;
+
+    @media screen and (min-width: $breakpoint-large) {
+      width: 400px;
+    }
   }
 
-  .image-container {
+  .checkbox-item {
     display: flex;
-    width: 100%;
-    height: auto;
   }
 
   .content {
-    align-items: center;
-    justify-content: center;
     width: 100%;
     height: 100%;
+    padding: 30px 20px;
+    box-sizing: border-box;
   }
 </style>

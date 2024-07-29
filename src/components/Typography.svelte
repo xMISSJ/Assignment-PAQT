@@ -6,28 +6,25 @@
   export let style: string = "";
   export let component: HTMLElement | null = null;
 
-  const fontStyles: Record<
-    string,
-    {
-      fontSize: string;
-      letterSpacing?: string;
-      fontWeight?: string;
-    }
-  > = {
+  const fontStyles: { [key: string]: FontStyle } = {
     title: {
       fontSize: "30px",
-      letterSpacing: "2px",
+      fontWeight: "600",
+    },
+    title2: {
+      fontSize: "30px",
     },
     subtitle: {
       fontSize: "22px",
       letterSpacing: "2px",
+      fontWeight: "600",
     },
     body: {
-      fontSize: "12px",
+      fontSize: "16px",
     },
     body2: {
-      fontSize: "10px",
-      fontWeight: "900",
+      fontSize: "12px",
+      fontWeight: "600",
     },
   };
 

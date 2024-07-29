@@ -9,7 +9,7 @@
 </script>
 
 <div class="datefield">
-  <Typography variant="h2" type="body" color="var(--color-darkest-lilac)">
+  <Typography variant="h2" type="body2" color="var(--color-darkest-lilac)">
     {label}
   </Typography>
   <input {type} name={fieldName} value={fieldValue} on:change={onChange} />
