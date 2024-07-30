@@ -61,7 +61,9 @@
   }
 
   .back-button {
-    margin: 20px;
+    left: 40px;
+    top: 40px;
+    position: absolute;
   }
 
   .accordion-container {

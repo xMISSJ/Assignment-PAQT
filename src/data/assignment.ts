@@ -14,7 +14,7 @@ export const Assignments : Assignment[] = [
     periode
     b. Een null als het object gewoon beschikbaar is in de gekozen periode,
     `,
-    answer_title: "Waarom",
+    answer_title: "Denkwijze",
     answer_description: `
     Ik heb aangenomen dat 'objecten' een abstracte term is en dat ik mocht invullen wat dat was. In mijn geval dacht ik aan het verhuren van honden, dat leek me namelijk wel leuk.
 
@@ -48,7 +48,7 @@ export const Assignments : Assignment[] = [
       Bewoners van de gemeente Utrecht met een beperking komen in aanmerking voor een WMO-subsidie (Wet Maatschappelijke Ondersteuning). Dankzij deze subsidie kunnen bewoners tegen een beperkte vergoeding reizen met de ondersteuning die zij nodig hebben. Als een aanvraag wordt goedgekeurd door de gemeente dan ontvangt de bewoner een zogenaamde beschikking. Deze beschikking is een jaar geldig en wordt  iedere jaar automatisch verlengd, tenzij de subsidie wordt stopgezet door de gemeente. Een beschikking heeft een budget, dit is het totale aantal kilometers dat de bewoner jaarlijks mag reizen zolang de beschikking actief is. Het budget wordt jaarlijks gereset zolang de beschikking actief is. Voor een front-end applicatie zijn deze gegevens nodig.
       
       Kun je de API endpoints vanuit de back-end beschrijven?`,
-    answer_title: "API endpoints",
+    answer_title: "Denkwijze",
     answer_description: `
       <b>Belangrijke punten:</b>
       - Bewoner
