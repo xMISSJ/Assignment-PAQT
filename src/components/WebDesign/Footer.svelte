@@ -36,7 +36,7 @@
   </div>
   <Spacer multiplier={2} />
   <Typography type="p" variant="body">
-    {"© 2024 Copyright Jenny Sun"}
+    {"© 2024 Jenny Sun"}
   </Typography>
 </div>
 

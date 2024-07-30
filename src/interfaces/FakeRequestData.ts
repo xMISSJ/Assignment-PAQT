@@ -1,0 +1,3 @@
+interface FakeRequestData {
+  dog: string;
+}

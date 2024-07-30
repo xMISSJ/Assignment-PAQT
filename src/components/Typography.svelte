@@ -19,12 +19,19 @@
       letterSpacing: "2px",
       fontWeight: "600",
     },
+    subtitle2: {
+      fontSize: "16px",
+      fontWeight: "600",
+    },
     body: {
       fontSize: "16px",
     },
     body2: {
       fontSize: "12px",
       fontWeight: "600",
+    },
+    body3: {
+      fontSize: "12px",
     },
   };
 

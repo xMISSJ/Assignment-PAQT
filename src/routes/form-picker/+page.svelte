@@ -1,13 +1,13 @@
 <script lang="ts">
   import Button from "./../../components/Button.svelte";
   import Typography from "../../components/Typography.svelte";
-  import { formatDate } from "../../lib/dateUtils.js";
+  import { formatDate } from "../../lib/dateUtils";
   import Spacer from "../../components/Spacer.svelte";
   import DateField from "../../components/FormPicker/DateField.svelte";
   import DropDown from "../../components/FormPicker/DropDown.svelte";
   import Image from "../../components/Image.svelte";
-  import { fakeRequest } from "$lib/fakeApi";
   import ErrorField from "../../components/FormPicker/ErrorField.svelte";
+  import { fakeRequest } from "../../lib/fakeApi";
 
   type FormData = {
     startDate: string;
