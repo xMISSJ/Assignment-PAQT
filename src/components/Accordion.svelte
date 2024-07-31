@@ -19,7 +19,7 @@
   </span>
 </button>
 <div class="panel" class:show={isOpen}>
-  <Typography variant="p" type="body" whiteSpace="pre-line">
+  <Typography variant="p" type="body" whiteSpace="pre-wrap">
     {@html content}
   </Typography>
 </div>

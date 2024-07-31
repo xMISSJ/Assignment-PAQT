@@ -22,33 +22,36 @@
     <div class="back-button">
       <BackButton />
     </div>
+  {/if}
 
-    {#if assignmentData != null}
-      <div class="accordion-container">
-        <Accordion
-          heading={assignmentData.title}
-          content={assignmentData.description}
-        />
-        <Spacer multiplier={2} />
-        <Accordion
-          heading={assignmentData.answer_title}
-          content={assignmentData.answer_description}
-        />
-      </div>
-    {/if}
+  {#if $page.url.pathname != "/" && assignmentData != null}
+    <div class="accordion-container">
+      <Accordion
+        heading={assignmentData.title}
+        content={assignmentData.description}
+      />
+      <Spacer multiplier={2} />
+      <Accordion
+        heading={assignmentData.answer_title}
+        content={assignmentData.answer_description}
+      />
+    </div>
   {/if}
   <main>
     <slot />
   </main>
 </div>
 
-<style>
+<style lang="scss">
+  @import "../styles/_variables.scss";
+
   .app {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100vw;
     height: 100vh;
+    position: relative;
   }
 
   main {
@@ -67,8 +70,16 @@
   }
 
   .accordion-container {
-    width: 600px;
-    max-width: 800px;
-    margin: 40px;
+    margin-top: 80px;
+    margin-bottom: 40px;
+    width: 100%;
+    max-width: 100vw;
+
+    @media screen and (min-width: $breakpoint-medium) {
+      margin-top: 80px;
+      margin-bottom: 40px;
+      width: 700px;
+      max-width: 800px;
+    }
   }
 </style>
